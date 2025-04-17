@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>WebView Content</title>
+
+    <script>
+        function getToken(){
+            /*
+                Triggers native app to make new token
+            */
+            app.appMakeToken();
+        }
+
+        /*
+            Triggered by the native app after it's made a token. This solves the waiting for a token
+            problem.
+        */
+        function setToken(token){
+            document.getElementById("tokenArea").innerHTML = token;
+        }
+
+    </script>
+</head>
+<body style="background-color:#9fb4d6;">
+<h1>Web View</h1>
+
+<textarea id="tokenArea" rows=10>myTokenValuearea</textarea>
+
+<p><input type="button" onClick="getToken();" value="Get Token"></p>
+
+</body>
+
+</html>
