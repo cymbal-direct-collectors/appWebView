@@ -20,7 +20,7 @@ import com.google.android.recaptcha.RecaptchaTasksClient;
 
 public class MainActivity extends AppCompatActivity {
     private String myToken = "myDefaultValue";
-    final private String siteKey = "6LfpE7MiAAAAAAHBB8Migk7Dtc2TnNiGW7a7bR4P";
+    final private String siteKey = "<<INSERT SITE KEY VALUE HERE>>";
     @Nullable
     public static RecaptchaTasksClient recaptchaTasksClient = null;
 
