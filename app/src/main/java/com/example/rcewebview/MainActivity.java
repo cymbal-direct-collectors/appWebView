@@ -26,6 +26,8 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     private String myToken = "myDefaultValue";
     final private String siteKey = "<<INSERT SITE KEY VALUE HERE>>";
+
+    private String webViewUrl = "https://sdk-login-app-724756488068.us-central1.run.app/login.html";
     @Nullable
     public static RecaptchaTasksClient recaptchaTasksClient = null;
 
@@ -52,12 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
     }
-    Button button = (Button) findViewById(R.id.btn_reset);
-    button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.d("BUTTONS", "User tapped the Supabutton");
-            }
-        });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +67,14 @@ public class MainActivity extends AppCompatActivity {
         Map<String, String> headers = new HashMap<>();
         // Adding key-value pairs to the map
         headers.put("Hostname", "localhost");
-        myWebView.loadUrl("https://sdk-login-app-724756488068.us-central1.run.app/login.html",headers);
+        myWebView.loadUrl(webViewUrl,headers);
         myWebView.addJavascriptInterface(new WebViewJavaScriptInterface(this), "app");
+        Button button = (Button) findViewById(R.id.btn_reset);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                myWebView.loadUrl(webViewUrl,headers);
+            }
+        });
     }
 
     /*
