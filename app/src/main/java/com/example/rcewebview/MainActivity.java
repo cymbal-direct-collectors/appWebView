@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -17,6 +19,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.recaptcha.Recaptcha;
 import com.google.android.recaptcha.RecaptchaAction;
 import com.google.android.recaptcha.RecaptchaTasksClient;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private String myToken = "myDefaultValue";
@@ -47,7 +52,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
     }
-
+    Button button = (Button) findViewById(R.id.btn_reset);
+    button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Log.d("BUTTONS", "User tapped the Supabutton");
+            }
+        });
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +66,11 @@ public class MainActivity extends AppCompatActivity {
         WebView myWebView = (WebView) findViewById(R.id.webView1);
         WebSettings ws = myWebView.getSettings();
         ws.setJavaScriptEnabled(true);
-        myWebView.loadUrl("file:///android_asset/index.html");
+        // Create a Map using HashMap
+        Map<String, String> headers = new HashMap<>();
+        // Adding key-value pairs to the map
+        headers.put("Hostname", "localhost");
+        myWebView.loadUrl("https://sdk-login-app-724756488068.us-central1.run.app/login.html",headers);
         myWebView.addJavascriptInterface(new WebViewJavaScriptInterface(this), "app");
     }
 

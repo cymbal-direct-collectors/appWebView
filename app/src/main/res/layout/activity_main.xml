@@ -46,4 +46,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        tools:layout_editor_absoluteX="307dp"
+        tools:layout_editor_absoluteY="152dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
