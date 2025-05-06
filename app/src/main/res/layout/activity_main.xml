@@ -6,52 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginBottom="102dp"
+        android:layout_marginTop="29dp"
         android:text="Native App"
-        app:layout_constraintBottom_toTopOf="@+id/webView1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
-
-    <WebView
-        android:id="@+id/webView1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="24dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        tools:layout_editor_absoluteX="171dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="395dp"
         android:layout_height="90dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginTop="57dp"
+        android:background="#EBF6FE"
         android:text="Message area"
-        app:layout_constraintBottom_toTopOf="@+id/webView1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="15dp" />
+
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="410dp"
+        android:layout_height="548dp"
+        android:layout_marginTop="183dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+    </WebView>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="82dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="157dp"
+        android:text="Web View"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="158dp" />
 
     <Button
         android:id="@+id/btn_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="144dp"
         android:text="Reset"
-        tools:layout_editor_absoluteX="307dp"
-        tools:layout_editor_absoluteY="152dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
