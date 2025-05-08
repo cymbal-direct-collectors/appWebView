@@ -20,16 +20,67 @@ import com.google.android.recaptcha.Recaptcha;
 import com.google.android.recaptcha.RecaptchaAction;
 import com.google.android.recaptcha.RecaptchaTasksClient;
 
+import com.google.gson.Gson;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private String myToken = "myDefaultValue";
+
+    /*
+     * This might be a good key?: 6LflaTIrAAAAAFa5y8wwY_TX1G2ZcNs7p08jNMTT
+     */
     final private String siteKey = "<<INSERT SITE KEY VALUE HERE>>";
 
+    /*
+     *    file:///android_asset
+     */
     private String webViewUrl = "https://sdk-login-app-724756488068.us-central1.run.app/login.html";
     @Nullable
     public static RecaptchaTasksClient recaptchaTasksClient = null;
+
+    public class User{
+        String email;
+        String token;
+        String rememberMe;
+        String password;
+
+        String type;
+        public void setEmail(String str){
+            email=str;
+        }
+        public void setToken(String str){
+            token=str;
+        }
+        public void setRememberMe(String str){
+            rememberMe=str;
+        }
+        public void setPassword(String str) {
+            password = str;
+        }
+
+        public void setType(String str) {
+            type = str;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+        public String getPassword() {
+            return password;
+        }
+        public String getRememberMe() {
+            return rememberMe;
+        }
+        public String getToken() {
+            return token;
+        }
+    }
 
     private void initializeRecaptchaClient() {
         Recaptcha
@@ -125,9 +176,8 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(String token) {
                                 try{
-                                    System.out.println(token);
                                     WebView myWebView = (WebView) findViewById(R.id.webView1);
-                                    myWebView.evaluateJavascript("setToken(\""+token+"\");",new ValueCallback<String>() {
+                                    myWebView.evaluateJavascript("setToken('"+token+"');",new ValueCallback<String>() {
                                         @Override
                                         public void onReceiveValue(String value) { }
                                     });
