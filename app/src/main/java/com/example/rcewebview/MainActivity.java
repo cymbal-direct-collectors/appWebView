@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     final private String siteKey = "<<INSERT SITE KEY VALUE HERE>>";
 
     /*
-     *    file:///android_asset
+     *    file:///android_asset/index.html
      */
     private String webViewUrl = "https://sdk-login-app-724756488068.us-central1.run.app/login.html";
     @Nullable
