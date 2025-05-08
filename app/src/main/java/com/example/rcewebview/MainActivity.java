@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     );
-            setMessage("Token made",false);
+            setMessage("Token made",true);
         }
     }
 }
